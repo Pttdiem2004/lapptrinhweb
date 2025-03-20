@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh sách người dùng</title>
     <link rel="stylesheet" href="css/list.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
 
@@ -13,8 +14,8 @@
     </div>
 
     <nav>
-        <a href="#">Home</a> | 
-        <a href="#">Đăng xuất</a>
+        <a href="index.html">Home</a> | 
+        <a href="logout.html">Đăng xuất</a>
     </nav>
 
     <div class="container">
@@ -29,107 +30,8 @@
                     <th>Thao tác</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>UPVH</td>
-                    <td>ATJW@gmail.com</td>
-                    <td>
-                        <a href="#">Edit</a> | 
-                        <a href="#">View</a> | 
-                        <a href="#">Delete</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>IFUK</td>
-                    <td>KULB@gmail.com</td>
-                    <td>
-                        <a href="#">Edit</a> | 
-                        <a href="#">View</a> | 
-                        <a href="#">Delete</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>DZZQ</td>
-                    <td>ERNB@gmail.com</td>
-                    <td>
-                        <a href="#">Edit</a> | 
-                        <a href="#">View</a> | 
-                        <a href="#">Delete</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>NIYY</td>
-                    <td>ROIF@gmail.com</td>
-                    <td>
-                        <a href="#">Edit</a> | 
-                        <a href="#">View</a> | 
-                        <a href="#">Delete</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>YUMG</td>
-                    <td>KITN@gmail.com</td>
-                    <td>
-                        <a href="#">Edit</a> | 
-                        <a href="#">View</a> | 
-                        <a href="#">Delete</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>WZSU</td>
-                    <td>CVTL@gmail.com</td>
-                    <td>
-                        <a href="#">Edit</a> | 
-                        <a href="#">View</a> | 
-                        <a href="#">Delete</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>WXFQ</td>
-                    <td>MULZ@gmail.com</td>
-                    <td>
-                        <a href="#">Edit</a> | 
-                        <a href="#">View</a> | 
-                        <a href="#">Delete</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>XZOR</td>
-                    <td>YZLV@gmail.com</td>
-                    <td>
-                        <a href="#">Edit</a> | 
-                        <a href="#">View</a> | 
-                        <a href="#">Delete</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>HGGO</td>
-                    <td>OYYX@gmail.com</td>
-                    <td>
-                        <a href="#">Edit</a> | 
-                        <a href="#">View</a> | 
-                        <a href="#">Delete</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>PXZX</td>
-                    <td>YSML@gmail.com</td>
-                    <td>
-                        <a href="#">Edit</a> | 
-                        <a href="#">View</a> | 
-                        <a href="#">Delete</a>
-                    </td>
-                </tr>
+            <tbody id="userTable">
+                <!-- Dữ liệu sẽ được thêm bằng JavaScript -->
             </tbody>
         </table>
 
@@ -145,6 +47,33 @@
     <div class="footer">
         Lập trình web © 2024
     </div>
+
+    <script>
+        // Mảng dữ liệu giả lập
+        const users = [
+            { id: 1, username: "UPVH", email: "ATJW@gmail.com" },
+            { id: 2, username: "IFUK", email: "KULB@gmail.com" },
+            { id: 3, username: "DZZQ", email: "ERNB@gmail.com" },
+            { id: 4, username: "NIYY", email: "ROIF@gmail.com" },
+            { id: 5, username: "YUMG", email: "KITN@gmail.com" }
+        ];
+
+        // Lấy bảng và chèn dữ liệu
+        const tableBody = document.getElementById("userTable");
+        users.forEach(user => {
+            const row = `<tr>
+                <td>${user.id}</td>
+                <td>${user.username}</td>
+                <td>${user.email}</td>
+                <td>
+                    <button class="edit"><i class="fas fa-edit"></i> Edit</button>
+                    <button class="view"><i class="fas fa-eye"></i> View</button>
+                    <button class="delete"><i class="fas fa-trash"></i> Delete</button>
+                </td>
+            </tr>`;
+            tableBody.innerHTML += row;
+        });
+    </script>
 
 </body>
 </html>
